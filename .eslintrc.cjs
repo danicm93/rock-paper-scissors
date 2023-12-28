@@ -53,6 +53,7 @@ module.exports = {
     "import/no-named-as-default": "off",
     "import/no-named-as-default-member": "off",
     "react/react-in-jsx-scope": "off",
+    "react/prop-types": "off",
     "@typescript-eslint/no-explicit-function-return-type": "off",
     "@typescript-eslint/no-floating-promises": "off",
     "@typescript-eslint/promise-function-async": "off"

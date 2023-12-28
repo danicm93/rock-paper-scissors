@@ -16,7 +16,7 @@ const boxStyle = {
 const Home: React.FC<HomeInterface>  = () => {
   return (
     <Box sx={boxStyle}>
-      <MyButton>Comenzar</MyButton>
+      <MyButton variant='contained'>Comenzar</MyButton>
     </Box>
   )
 }
