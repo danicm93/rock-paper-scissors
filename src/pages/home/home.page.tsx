@@ -1,17 +1,23 @@
 import React from 'react'
 
-import { Button } from '@mui/material'
+import { Box } from '@mui/material'
 
-import { CenteredBox } from '.'
-
+import { MyButton } from '@/shared/components'
 
 export interface HomeInterface {}
 
+const boxStyle = {
+  display:'flex', 
+  alignItems: 'center', 
+  justifyContent: 'center', 
+  height: '100vh'
+}
+
 const Home: React.FC<HomeInterface>  = () => {
   return (
-    <CenteredBox>
-      <Button>Comenzar</Button>
-    </CenteredBox>
+    <Box sx={boxStyle}>
+      <MyButton>Comenzar</MyButton>
+    </Box>
   )
 }
 

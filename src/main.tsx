@@ -6,7 +6,6 @@ import ReactDOM from 'react-dom/client'
 import { BrowserRouter } from 'react-router-dom'
 
 import { App, theme } from '@/core'
-import { Layout } from '@/shared'
 
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
@@ -14,9 +13,7 @@ ReactDOM.createRoot(document.getElementById('root')!).render(
     <BrowserRouter>
       <ThemeProvider theme={theme}>
         <CssBaseline />
-        <Layout>
-          <App />
-        </Layout>
+        <App />
       </ThemeProvider>
     </BrowserRouter>
   </React.StrictMode>,
