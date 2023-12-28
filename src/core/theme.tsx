@@ -1,8 +1,16 @@
-import { createTheme } from '@mui/material/styles'
 import { red } from '@mui/material/colors'
+import { createTheme } from '@mui/material/styles'
 
-// A custom theme for this app
 const theme = createTheme({
+  components: {
+    MuiCssBaseline: {
+      styleOverrides: `
+        html, body, #root {
+          min-height: 100vh;
+        }
+      `,
+    },
+  },
   palette: {
     primary: {
       main: '#556cd6',

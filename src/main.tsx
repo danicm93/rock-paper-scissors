@@ -1,10 +1,12 @@
 import React from 'react'
-import ReactDOM from 'react-dom/client'
+
 import { ThemeProvider } from '@emotion/react'
-import { BrowserRouter } from 'react-router-dom'
 import { CssBaseline } from '@mui/material'
+import ReactDOM from 'react-dom/client'
+import { BrowserRouter } from 'react-router-dom'
 
 import { App, theme } from '@/core'
+import { Layout } from '@/shared'
 
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
@@ -12,7 +14,9 @@ ReactDOM.createRoot(document.getElementById('root')!).render(
     <BrowserRouter>
       <ThemeProvider theme={theme}>
         <CssBaseline />
-        <App />
+        <Layout>
+          <App />
+        </Layout>
       </ThemeProvider>
     </BrowserRouter>
   </React.StrictMode>,
