@@ -1,13 +1,14 @@
 import React from 'react'
 
 import { Box } from '@mui/material'
-import { useDispatch } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
+import { Navigate, useNavigate } from 'react-router-dom'
 
 import { createPlayerAdapter } from '@/shared/adapters/player.adapter'
 import { MyButton } from '@/shared/components'
 import { useFetchAndLoad } from '@/shared/hooks'
 import { createPlayer } from '@/shared/redux/states/player.state'
-// import { AppStore } from '@/shared/redux/store'
+import { AppStore } from '@/shared/redux/store'
 import { login } from '@/shared/services/public.services'
 
 export interface HomeInterface {}
@@ -21,13 +22,20 @@ const boxStyle = {
 
 const Home: React.FC<HomeInterface>  = () => {
 
+  const playerState = useSelector((store: AppStore) => store.player)
+  
   const { loading, callEndpoint } = useFetchAndLoad()
   const dispatch = useDispatch()
-  // const playerState = useSelector((store: AppStore) => store.player)
+  const navigate = useNavigate()
   
   const handleClick = async () => {
-    const morty = await callEndpoint(login())
-    dispatch(createPlayer(createPlayerAdapter(morty)))
+    if(!playerState.id) {
+      // TODO - añadir control de errores
+      const morty = await callEndpoint(login())
+      dispatch(createPlayer(createPlayerAdapter(morty)))
+    }
+
+    navigate('/board')
   }
   
   return (

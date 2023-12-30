@@ -11,6 +11,7 @@ import store from '@/shared/redux/store'
 import { theme } from '.'
 
 const Home = lazy(() => import('@/pages/home/home.page'))
+const Board = lazy(() => import('@/pages/board/board.page'))
 
 function App() {
   return (
@@ -22,7 +23,7 @@ function App() {
             <BrowserRouter>
               <Routes>
                 <Route path="/" element={ <Home /> } />
-                {/* <Route path="contact" element={ <Contact /> } /> */}
+                <Route path="board" element={ <Board /> } />
               </Routes>
             </BrowserRouter>
           </Provider>
