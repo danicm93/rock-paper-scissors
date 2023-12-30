@@ -4,8 +4,17 @@ import { ButtonProps } from '@mui/material/Button'
 
 import { MyButtonStyled } from './my-button.style'
 
-const MyButton: React.FC<ButtonProps> = (props) => {
-  return <MyButtonStyled {...props} />
+interface MyButtonProps extends ButtonProps {
+  loading: boolean;
+}
+
+const MyButton: React.FC<MyButtonProps> = ({children, loading = false, ...props}) => {
+  
+  return (
+    <MyButtonStyled {...props}>
+      { loading ? 'cargando ...' : children }
+    </MyButtonStyled>
+  )
 }
 
 export default MyButton
