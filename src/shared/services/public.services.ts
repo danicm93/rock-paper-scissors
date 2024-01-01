@@ -7,7 +7,7 @@ import { loadAbort } from '@/shared/utilities'
 export const login = () => {
   const controller = loadAbort()
   return {
-    call: axios.get<Player>('https://rickandmortyapi.com/api/character/2', { signal: controller.signal }),
+    call: axios.get<Player>('https://rickandmortyapi.com/api/characters/2', { signal: controller.signal }),
     controller
   }
 }
