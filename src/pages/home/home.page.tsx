@@ -2,7 +2,7 @@ import React from 'react'
 
 import { Box } from '@mui/material'
 import { useDispatch, useSelector } from 'react-redux'
-import { Navigate, useNavigate } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 
 import { createPlayerAdapter } from '@/shared/adapters/player.adapter'
 import { MyButton } from '@/shared/components'

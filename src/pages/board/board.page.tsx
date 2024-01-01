@@ -1,12 +1,13 @@
 import React from 'react'
 
-import { Alert, Box, Container, Typography } from '@mui/material'
+import { Box, Typography } from '@mui/material'
 import { LiaArrowLeftSolid } from 'react-icons/lia'
 import { useDispatch, useSelector } from 'react-redux'
 import { Link as RouterLink } from 'react-router-dom'
 
 import { createPlayerAdapter } from '@/shared/adapters/player.adapter'
 import { MyButton } from '@/shared/components'
+import MyAlert from '@/shared/components/my-alert/my-alert'
 import { useFetchAndLoad } from '@/shared/hooks'
 import { createPlayer } from '@/shared/redux/states/player.state'
 import { AppStore } from '@/shared/redux/store'
@@ -19,6 +20,8 @@ export interface BoardInterface {}
 const containerStyle = {
   display:'flex',
   flexDirection: 'column',
+  flexWrap: 'nowrap',
+  justifyContent: 'space-between',
   height: '100vh'
 }
 
@@ -34,34 +37,37 @@ const Board: React.FC<BoardInterface>  = () => {
   }
   
   return (
-    <Container sx={containerStyle}>
+    <Box sx={containerStyle}>
       <MyAppBar />
-      { !playerState.id ? (
-        <Alert
-          action={
-            <MyButton 
-              size="small"
-              color='inherit' 
-              variant='text'
-              component={RouterLink}
-              to='/'
-            >
-              <LiaArrowLeftSolid />
-              <Typography sx={{ml: 1}}>Volver</Typography>
-            </MyButton>
-          }
-        >
-            This is a success alert — check it out!
-        </Alert>    
-      ) :(
+      <MyAlert
+        severity="error"
+        visible={!playerState.id }
+        action={
+          <MyButton 
+            size="small"
+            color='inherit' 
+            variant='text'
+            component={RouterLink}
+            to='/'
+          >
+            <LiaArrowLeftSolid />
+            <Typography sx={{ml: 1}}>Volver</Typography>
+          </MyButton>
+        }
+      >
+        No se ha podido cargar a tu personaje
+      </MyAlert>
+      { playerState.id && (
         <MyButton 
           variant='contained' 
           onClick={handleClick}
           loading={loading}
         >Dentro</MyButton>
-      )
-      }
-    </Container>
+      )}
+      <Box color="white">
+        Acciones
+      </Box>
+    </Box>
   )
 }
 
