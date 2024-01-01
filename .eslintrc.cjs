@@ -56,6 +56,7 @@ module.exports = {
     "react/prop-types": "off",
     "@typescript-eslint/no-explicit-function-return-type": "off",
     "@typescript-eslint/no-floating-promises": "off",
-    "@typescript-eslint/promise-function-async": "off"
+    "@typescript-eslint/promise-function-async": "off",
+    "@typescript-eslint/no-explicit-any": "off"
   }
 }

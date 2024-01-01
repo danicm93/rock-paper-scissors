@@ -1,4 +1,4 @@
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
+// TODO - Dar formato a character
 export const createPlayerAdapter = (character: any) => ({
   id: character.data.id,
   image: character.data.image,

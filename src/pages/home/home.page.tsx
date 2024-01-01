@@ -30,7 +30,6 @@ const Home: React.FC<HomeInterface>  = () => {
   
   const handleClick = async () => {
     if(!playerState.id) {
-      // TODO - añadir control de errores
       const morty = await callEndpoint(login())
       dispatch(createPlayer(createPlayerAdapter(morty)))
     }

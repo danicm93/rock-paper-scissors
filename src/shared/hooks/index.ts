@@ -1,3 +1,2 @@
-export * from './asyncComponentClean.hook';
-export { default as useFetchAndLoad } from './useFetchAndLoad';
-export * from './useYupValidationResolver';
+export * from './use-async.hook'
+export { default as useFetchAndLoad } from './use-fetch-and-load.hook'
