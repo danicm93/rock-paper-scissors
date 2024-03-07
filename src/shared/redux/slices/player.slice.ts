@@ -1,14 +1,7 @@
 import { createSlice } from '@reduxjs/toolkit'
 
-import { Player } from '@/shared/models/player.model'
+import { PlayerEmptyState } from '@/shared/states'
 
-export const PlayerEmptyState: Player = {
-  id: null,
-  image: '',
-  name: '',
-  gender: '',
-  species: ''
-}
 
 export const playerSlice = createSlice({
   name: 'player',

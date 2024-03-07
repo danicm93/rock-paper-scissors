@@ -2,7 +2,7 @@ import { configureStore } from '@reduxjs/toolkit'
 
 import { Player } from '@/shared/models'
 
-import { playerReducer } from './states'
+import { playerReducer } from './slices'
 
 export interface AppStore {
   player: Player;

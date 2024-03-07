@@ -7,7 +7,7 @@ import { useNavigate } from 'react-router-dom'
 import { createPlayerAdapter } from '@/shared/adapters/player.adapter'
 import { MyButton } from '@/shared/components'
 import { useFetchAndLoad } from '@/shared/hooks'
-import { createPlayer } from '@/shared/redux/states/player.state'
+import { createPlayer } from '@/shared/redux/slices/player.slice'
 import { AppStore } from '@/shared/redux/store'
 import { login } from '@/shared/services/public.services'
 
@@ -30,8 +30,8 @@ const Home: React.FC<HomeInterface>  = () => {
   
   const handleClick = async () => {
     if(!playerState.id) {
-      const morty = await callEndpoint(login())
-      dispatch(createPlayer(createPlayerAdapter(morty)))
+      const response = await callEndpoint(login())
+      dispatch(createPlayer(createPlayerAdapter(response.data)))
     }
 
     navigate('/board')
