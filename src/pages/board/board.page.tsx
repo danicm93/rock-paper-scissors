@@ -45,6 +45,8 @@ const Board: React.FC<BoardInterface>  = () => {
   }
 
   useAsync(getApiData, adaptRival, () => {})
+
+  // console.log('loadingRival', loadingRival, rival.id)
   
   return (
     <Box sx={containerStyle}>
@@ -75,7 +77,7 @@ const Board: React.FC<BoardInterface>  = () => {
           spacing={2}
         >
           <Box sx={{minWidth: 250}}>
-            { !rival.id ? '...' : (
+            { loadingRival || !rival.id ? '...' : (
               <Card sx={{ width: '100%' }}>
                 <CardMedia
                   sx={{ height: 200 }}
